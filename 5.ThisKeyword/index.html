@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Keyword</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript - this Keyword</h1>
+
+    <h2>What is this?</h2>
+    <p>
+        <strong>this</strong> is a special keyword in JavaScript that refers
+        to the object that is currently executing the function.
+    </p>
+
+    <p>
+        The value of <strong>this</strong> is determined by how a function
+        is called, not where it is defined.
+    </p>
+
+    <hr>
+
+    <h2>Rule 1: Global Context</h2>
+
+    <p>
+        In the browser, <strong>this</strong> refers to the global
+        window object.
+    </p>
+
+    <pre>
+console.log(this);
+    </pre>
+
+    <p><strong>Output:</strong> Window</p>
+
+    <hr>
+
+    <h2>Rule 2: Inside an Object Method</h2>
+
+    <pre>
+const person = {
+    name: "Praveen",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+person.greet();
+    </pre>
+
+    <p>
+        Here, <strong>this</strong> refers to the person object because
+        the method is called using person.greet().
+    </p>
+
+    <p><strong>Output:</strong> Praveen</p>
+
+    <hr>
+
+    <h2>Rule 3: Normal Function</h2>
+
+    <pre>
+function greet() {
+    console.log(this);
+}
+
+greet();
+    </pre>
+
+    <p>
+        In non-strict mode, this refers to the global window object.
+    </p>
+
+    <p><strong>Output:</strong> Window</p>
+
+    <hr>
+
+    <h2>Rule 4: Arrow Functions</h2>
+
+    <pre>
+const person = {
+    name: "Praveen",
+
+    greet() {
+        const inner = () => {
+            console.log(this.name);
+        };
+
+        inner();
+    }
+};
+
+person.greet();
+    </pre>
+
+    <p>
+        Arrow functions do not create their own this.
+        They inherit this from the surrounding scope.
+    </p>
+
+    <p><strong>Output:</strong> Praveen</p>
+
+    <hr>
+
+    <h2>Rule 5: Constructor Functions</h2>
+
+    <pre>
+function Person(name) {
+    this.name = name;
+}
+
+const user = new Person("Praveen");
+    </pre>
+
+    <p>
+        When a function is called using the new keyword,
+        this refers to the newly created object.
+    </p>
+
+    <hr>
+
+    <h2>call(), apply(), bind()</h2>
+
+    <h3>call()</h3>
+
+    <pre>
+greet.call(person);
+    </pre>
+
+    <p>
+        call() invokes a function immediately and sets the value of this.
+    </p>
+
+    <h3>apply()</h3>
+
+    <pre>
+greet.apply(person, ["Chennai"]);
+    </pre>
+
+    <p>
+        apply() works like call(), but arguments are passed as an array.
+    </p>
+
+    <h3>bind()</h3>
+
+    <pre>
+const newFunc = greet.bind(person);
+    </pre>
+
+    <p>
+        bind() does not execute immediately. It returns a new function
+        with this permanently bound to the specified object.
+    </p>
+
+    <hr>
+
+    <h2>Interview Shortcut</h2>
+
+    <p>
+        Whenever you see <strong>this</strong>, ask:
+    </p>
+
+    <ol>
+        <li>Who called the function?</li>
+        <li>Is it a normal function?</li>
+        <li>Is it an object method?</li>
+        <li>Is it an arrow function?</li>
+        <li>Was it called using new?</li>
+    </ol>
+
+    <p>
+        Answering these questions will help you determine the value of
+        this in almost every interview question.
+    </p>
+
+    <script src="thiskeyword.js"></script>
+
+</body>
+</html>

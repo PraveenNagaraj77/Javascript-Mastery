@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopes</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript Scope</h1>
+
+    <h2>What is Scope?</h2>
+    <p>
+        Scope determines the accessibility or visibility of variables,
+        functions, and objects in different parts of a JavaScript program.
+    </p>
+
+    <h2>Why is Scope Important?</h2>
+    <p>
+        Scope helps prevent variable conflicts, improves code organization,
+        and provides data security by restricting access to variables.
+    </p>
+
+    <h2>Types of Scope in JavaScript</h2>
+
+    <h3>1. Global Scope</h3>
+    <p>
+        Variables declared outside any function or block belong to the
+        global scope and can be accessed from anywhere in the program.
+    </p>
+
+    <h3>2. Function Scope</h3>
+    <p>
+        Variables declared with <strong>var</strong> inside a function
+        are accessible only within that function.
+    </p>
+
+    <h3>3. Block Scope</h3>
+    <p>
+        Variables declared with <strong>let</strong> and
+        <strong>const</strong> inside a block ({}) are accessible
+        only within that block.
+    </p>
+
+    <h2>Global Scope</h2>
+    <ul>
+        <li>Declared outside all functions and blocks.</li>
+        <li>Accessible from anywhere.</li>
+        <li>Exists throughout the application's lifetime.</li>
+    </ul>
+
+    <h2>Function Scope</h2>
+    <ul>
+        <li>Created when a function executes.</li>
+        <li>Variables are not accessible outside the function.</li>
+        <li>Mainly associated with <strong>var</strong>.</li>
+    </ul>
+
+    <h2>Block Scope</h2>
+    <ul>
+        <li>Created using curly braces {}.</li>
+        <li>Works with <strong>let</strong> and <strong>const</strong>.</li>
+        <li>Provides better variable control.</li>
+    </ul>
+
+    <h2>Lexical Scope</h2>
+    <p>
+        JavaScript uses lexical scope, meaning that a function can access
+        variables from its parent scope where it was defined.
+    </p>
+
+    <h2>Scope Chain</h2>
+    <p>
+        When JavaScript cannot find a variable in the current scope,
+        it searches the parent scope, then the next parent scope,
+        until it reaches the global scope.
+    </p>
+
+    <h2>Advantages of Scope</h2>
+    <ul>
+        <li>Prevents accidental variable modification.</li>
+        <li>Improves maintainability.</li>
+        <li>Supports data hiding.</li>
+        <li>Reduces naming conflicts.</li>
+    </ul>
+
+    <h2>Best Practices</h2>
+    <ul>
+        <li>Prefer <strong>const</strong> whenever possible.</li>
+        <li>Use <strong>let</strong> for mutable values.</li>
+        <li>Avoid <strong>var</strong> in modern JavaScript.</li>
+        <li>Keep variable scope as small as possible.</li>
+    </ul>
+
+    <h2>Interview Questions</h2>
+    <ol>
+        <li>What is Scope in JavaScript?</li>
+        <li>What is Global Scope?</li>
+        <li>What is Function Scope?</li>
+        <li>What is Block Scope?</li>
+        <li>What is Lexical Scope?</li>
+        <li>What is Scope Chain?</li>
+        <li>Difference between Function Scope and Block Scope?</li>
+        <li>Why should we avoid global variables?</li>
+    </ol>
+
+    <script src="scope.js"></script>
+
+</body>
+</html>

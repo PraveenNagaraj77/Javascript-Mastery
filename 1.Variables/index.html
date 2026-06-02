@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables in JavaScript</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript Variables</h1>
+
+    <h2>What is a Variable?</h2>
+    <p>
+        A variable is a container used to store data values in JavaScript.
+        Variables allow us to store information and reuse it throughout the program.
+    </p>
+
+    <h2>Why Do We Need Variables?</h2>
+    <p>
+        Variables help us store and manage data efficiently. Instead of hardcoding values,
+        we can store them in variables and use them whenever needed.
+    </p>
+
+    <h2>Types of Variable Declarations</h2>
+
+    <h3>1. var</h3>
+    <p>
+        The <strong>var</strong> keyword was used before ES6.
+        It is function-scoped and can be redeclared and reassigned.
+    </p>
+
+    <pre>
+var name = "Praveen";
+var name = "Kumar"; // Allowed
+console.log(name);
+    </pre>
+
+    <h3>2. let</h3>
+    <p>
+        The <strong>let</strong> keyword was introduced in ES6.
+        It is block-scoped and can be reassigned but cannot be redeclared in the same scope.
+    </p>
+
+    <pre>
+let age = 25;
+age = 26; // Allowed
+
+// let age = 30; ❌ Error
+    </pre>
+
+    <h3>3. const</h3>
+    <p>
+        The <strong>const</strong> keyword is also block-scoped.
+        Once assigned, its value cannot be reassigned.
+    </p>
+
+    <pre>
+const country = "India";
+
+// country = "USA"; ❌ Error
+    </pre>
+
+    <h2>Difference Between var, let, and const</h2>
+
+    <table border="1">
+        <tr>
+            <th>Feature</th>
+            <th>var</th>
+            <th>let</th>
+            <th>const</th>
+        </tr>
+        <tr>
+            <td>Scope</td>
+            <td>Function</td>
+            <td>Block</td>
+            <td>Block</td>
+        </tr>
+        <tr>
+            <td>Redeclare</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Reassign</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Hoisting</td>
+            <td>Yes</td>
+            <td>Yes (TDZ)</td>
+            <td>Yes (TDZ)</td>
+        </tr>
+    </table>
+
+    <h2>Variable Naming Rules</h2>
+
+    <ul>
+        <li>Must start with a letter, underscore (_) or dollar sign ($).</li>
+        <li>Cannot start with a number.</li>
+        <li>Cannot use reserved keywords.</li>
+        <li>JavaScript is case-sensitive.</li>
+    </ul>
+
+    <h3>Valid Variable Names</h3>
+
+    <pre>
+let firstName;
+let _age;
+let $salary;
+let user123;
+    </pre>
+
+    <h3>Invalid Variable Names</h3>
+
+    <pre>
+let 123name;    // ❌
+let first-name; // ❌
+let class;      // ❌
+    </pre>
+
+    <h2>Data Types Stored in Variables</h2>
+
+    <pre>
+let name = "Praveen";     // String
+let age = 28;             // Number
+let isEmployee = true;    // Boolean
+let salary = null;        // Null
+let address;             // Undefined
+    </pre>
+
+    <h2>Best Practices</h2>
+
+    <ul>
+        <li>Use <strong>const</strong> by default.</li>
+        <li>Use <strong>let</strong> when value needs to change.</li>
+        <li>Avoid <strong>var</strong> in modern JavaScript.</li>
+        <li>Use meaningful variable names.</li>
+    </ul>
+
+    <h2>Interview Questions</h2>
+
+    <ol>
+        <li>Difference between var, let, and const?</li>
+        <li>What is variable hoisting?</li>
+        <li>What is Temporal Dead Zone (TDZ)?</li>
+        <li>What is block scope and function scope?</li>
+        <li>Can const objects be modified?</li>
+        <li>Why should we avoid var?</li>
+    </ol>
+
+    <script src="variables.js"></script>
+
+</body>
+</html>

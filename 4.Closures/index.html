@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript Closures</h1>
+
+    <h2>What is a Closure?</h2>
+    <p>
+        A Closure is a function that remembers and has access to variables
+        from its outer (lexical) scope even after the outer function has finished executing.
+    </p>
+
+    <h2>Why Do Closures Exist?</h2>
+    <p>
+        Normally, local variables inside a function are destroyed when the
+        function execution completes. Closures allow inner functions to retain
+        access to those variables even after the outer function has returned.
+    </p>
+
+    <h2>How Closures Work</h2>
+    <p>
+        When an inner function is returned or passed elsewhere, JavaScript
+        keeps a reference to the variables in the outer scope. This preserved
+        relationship between the function and its lexical environment is called a Closure.
+    </p>
+
+    <h2>Closure Components</h2>
+    <ul>
+        <li>Outer Function</li>
+        <li>Inner Function</li>
+        <li>Lexical Scope</li>
+        <li>Preserved Variables</li>
+    </ul>
+
+    <h2>Lexical Scope and Closures</h2>
+    <p>
+        Closures are possible because JavaScript uses lexical scoping.
+        An inner function can access variables defined in its parent function.
+    </p>
+
+    <h2>Real World Uses of Closures</h2>
+    <ul>
+        <li>Data Privacy</li>
+        <li>Encapsulation</li>
+        <li>Counters</li>
+        <li>Module Pattern</li>
+        <li>Event Handlers</li>
+        <li>Callbacks</li>
+        <li>Timers</li>
+        <li>Memoization</li>
+    </ul>
+
+    <h2>Advantages of Closures</h2>
+    <ul>
+        <li>Data hiding</li>
+        <li>Private variables</li>
+        <li>State preservation</li>
+        <li>Better code organization</li>
+        <li>Supports functional programming</li>
+    </ul>
+
+    <h2>Disadvantages of Closures</h2>
+    <ul>
+        <li>Can consume additional memory.</li>
+        <li>May cause memory leaks if not used carefully.</li>
+        <li>Can make debugging more difficult.</li>
+    </ul>
+
+    <h2>Common Interview Questions</h2>
+    <ol>
+        <li>What is a Closure?</li>
+        <li>How do Closures work?</li>
+        <li>What is the relationship between Closures and Lexical Scope?</li>
+        <li>What are real-world uses of Closures?</li>
+        <li>How are Closures used for data privacy?</li>
+        <li>Can Closures cause memory leaks?</li>
+    </ol>
+
+    <script src="closuress.js"></script>
+
+</body>
+</html>

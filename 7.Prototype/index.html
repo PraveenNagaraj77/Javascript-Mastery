@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+    <script src="prototype.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript Prototypes</h1>
+
+    <h2>What is a Prototype?</h2>
+
+    <p>
+        A Prototype is an object that allows other objects to inherit
+        properties and methods.
+    </p>
+
+    <p>
+        JavaScript uses prototypes to achieve inheritance and method sharing.
+    </p>
+
+    <hr>
+
+    <h2>Why Do We Need Prototypes?</h2>
+
+    <p>
+        Imagine creating 1000 user objects.
+    </p>
+
+    <p>
+        If every object contains its own copy of the same function,
+        memory is wasted.
+    </p>
+
+    <p>
+        Prototypes allow all objects to share a single copy of a method.
+    </p>
+
+    <hr>
+
+    <h2>Without Prototype</h2>
+
+    <pre>
+function User(name) {
+    this.name = name;
+
+    this.greet = function() {
+        console.log("Hello");
+    };
+}
+    </pre>
+
+    <p>
+        Every object gets its own copy of greet().
+    </p>
+
+    <p>
+        More memory is consumed.
+    </p>
+
+    <hr>
+
+    <h2>Using Prototype</h2>
+
+    <pre>
+function User(name) {
+    this.name = name;
+}
+
+User.prototype.greet = function() {
+    console.log("Hello");
+};
+    </pre>
+
+    <p>
+        Now every object shares the same greet() function.
+    </p>
+
+    <p>
+        Memory efficient and faster.
+    </p>
+
+    <hr>
+
+    <h2>Prototype Lookup</h2>
+
+    <p>
+        When JavaScript cannot find a property on an object,
+        it looks inside the object's prototype.
+    </p>
+
+    <p>
+        This process continues until the property is found
+        or the end of the prototype chain is reached.
+    </p>
+
+    <hr>
+
+    <h2>Prototype Chain</h2>
+
+    <pre>
+arr
+ ↓
+Array.prototype
+ ↓
+Object.prototype
+ ↓
+null
+    </pre>
+
+    <p>
+        This chain of linked prototype objects is called
+        the Prototype Chain.
+    </p>
+
+    <hr>
+
+    <h2>Real World Example</h2>
+
+    <h3>Employee System</h3>
+
+    <pre>
+function Employee(name) {
+    this.name = name;
+}
+
+Employee.prototype.login = function() {
+    console.log(this.name + " logged in");
+};
+
+Employee.prototype.logout = function() {
+    console.log(this.name + " logged out");
+};
+    </pre>
+
+    <p>
+        Thousands of employees can share the same login()
+        and logout() methods.
+    </p>
+
+    <p>
+        Only one copy exists in memory.
+    </p>
+
+    <hr>
+
+    <h2>prototype vs __proto__</h2>
+
+    <h3>prototype</h3>
+
+    <p>
+        Exists on constructor functions.
+    </p>
+
+    <pre>
+User.prototype
+    </pre>
+
+    <p>
+        Used to add shared methods and properties.
+    </p>
+
+    <h3>__proto__</h3>
+
+    <p>
+        Exists on objects.
+    </p>
+
+    <pre>
+user1.__proto__
+    </pre>
+
+    <p>
+        Points to the constructor's prototype object.
+    </p>
+
+    <hr>
+
+    <h2>Important Interview Question</h2>
+
+    <p>
+        Why do we use Prototypes?
+    </p>
+
+    <p>
+        Prototypes allow objects to share methods and properties.
+        This reduces memory usage and improves performance because
+        functions are stored once and reused by all instances.
+    </p>
+
+    <hr>
+
+    <h2>Key Points to Remember</h2>
+
+    <ul>
+        <li>JavaScript uses Prototype-based inheritance.</li>
+        <li>Every object has a prototype.</li>
+        <li>Functions have a prototype property.</li>
+        <li>Objects have a __proto__ reference.</li>
+        <li>Methods can be shared through prototypes.</li>
+        <li>Prototype chains enable inheritance.</li>
+    </ul>
+
+    <script src="prototype.js"></script>
+
+</body>
+</html>
