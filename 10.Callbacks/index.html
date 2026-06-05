@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>Callbacks in JavaScript</h1>
+
+    <h2>What is a Callback?</h2>
+
+    <p>
+        A callback is a function that is passed as an argument to another
+        function and is executed after a specific task is completed.
+    </p>
+
+    <h2>Why Do We Need Callbacks?</h2>
+
+    <p>
+        Callbacks help us execute code after an operation finishes.
+        They are commonly used for asynchronous tasks such as:
+    </p>
+
+    <ul>
+        <li>API Calls</li>
+        <li>File Downloads</li>
+        <li>Database Operations</li>
+        <li>User Events (Click, Scroll, Input)</li>
+        <li>Timers (setTimeout, setInterval)</li>
+    </ul>
+
+    <h2>Callback Syntax</h2>
+
+    <pre>
+function mainFunction(callback) {
+    callback();
+}
+    </pre>
+
+    <p>
+        The callback function is passed to another function and executed later.
+    </p>
+
+    <h2>Real-Time Example: Resume Download</h2>
+
+    <pre>
+downloadResume(openResume);
+    </pre>
+
+    <p>
+        The resume is downloaded first. Once the download is complete,
+        the callback function opens the resume.
+    </p>
+
+    <h2>Execution Flow</h2>
+
+    <pre>
+Download Resume
+        ↓
+Download Complete
+        ↓
+Execute Callback
+        ↓
+Open Resume
+    </pre>
+
+    <h2>Another Real-Time Example</h2>
+
+    <p>
+        User Registration System:
+    </p>
+
+    <pre>
+Register User
+        ↓
+Registration Complete
+        ↓
+Send Welcome Email
+    </pre>
+
+    <p>
+        The welcome email should only be sent after the user is successfully
+        registered. A callback helps maintain this sequence.
+    </p>
+
+    <h2>Callbacks and Asynchronous JavaScript</h2>
+
+    <p>
+        Callbacks are widely used in asynchronous operations. JavaScript
+        continues executing other code while waiting for tasks such as API
+        requests or timers to complete.
+    </p>
+
+    <h2>Advantages of Callbacks</h2>
+
+    <ul>
+        <li>Handle asynchronous operations.</li>
+        <li>Execute code after a task completes.</li>
+        <li>Improve code flexibility and reusability.</li>
+        <li>Allow custom behavior to be passed into functions.</li>
+    </ul>
+
+    <h2>Disadvantages of Callbacks</h2>
+
+    <ul>
+        <li>Can lead to deeply nested code.</li>
+        <li>Harder to read and maintain.</li>
+        <li>May result in Callback Hell.</li>
+    </ul>
+
+    <h2>What is Callback Hell?</h2>
+
+    <p>
+        Callback Hell occurs when multiple callbacks are nested inside one
+        another, making the code difficult to read and maintain.
+    </p>
+
+    <pre>
+Task 1
+   ↓
+Task 2
+   ↓
+Task 3
+   ↓
+Task 4
+    </pre>
+
+    <p>
+        To solve Callback Hell, JavaScript introduced Promises and later
+        Async/Await.
+    </p>
+
+    <h2>Interview Definition</h2>
+
+    <p>
+        A callback is a function passed as an argument to another function
+        and executed after a particular task or operation has been completed.
+    </p>
+
+    <script src="./callbacks.js"></script>
+</body>
+</html>

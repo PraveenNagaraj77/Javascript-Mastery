@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>Promises in JavaScript</h1>
+
+    <h2>What is a Promise?</h2>
+
+    <p>
+        A Promise is an object that represents the eventual success or failure
+        of an asynchronous operation.
+    </p>
+
+    <p>
+        A Promise acts as a placeholder for a value that will be available in
+        the future.
+    </p>
+
+    <h2>Why Do We Need Promises?</h2>
+
+    <p>
+        Before Promises, JavaScript relied heavily on callbacks for handling
+        asynchronous operations.
+    </p>
+
+    <p>
+        Multiple nested callbacks often resulted in Callback Hell, making code
+        difficult to read and maintain.
+    </p>
+
+    <pre>
+Task 1
+  ↓
+Task 2
+  ↓
+Task 3
+  ↓
+Task 4
+    </pre>
+
+    <p>
+        Promises provide a cleaner and more readable way to manage
+        asynchronous tasks.
+    </p>
+
+    <h2>Promise States</h2>
+
+    <ul>
+        <li><strong>Pending</strong> - Initial state, operation is in progress.</li>
+        <li><strong>Fulfilled (Resolved)</strong> - Operation completed successfully.</li>
+        <li><strong>Rejected</strong> - Operation failed.</li>
+    </ul>
+
+    <pre>
+Pending
+   ↓
+Resolved (Success)
+
+OR
+
+Pending
+   ↓
+Rejected (Failure)
+    </pre>
+
+    <h2>Creating a Promise</h2>
+
+    <pre>
+const promise = new Promise((resolve, reject) => {
+
+    let success = true;
+
+    if(success){
+        resolve("Operation Successful");
+    }else{
+        reject("Operation Failed");
+    }
+
+});
+    </pre>
+
+    <h2>Consuming a Promise</h2>
+
+    <pre>
+promise
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+    </pre>
+
+    <h2>Promise Methods</h2>
+
+    <h3>1. then()</h3>
+
+    <p>
+        Executes when the Promise is resolved successfully.
+    </p>
+
+    <pre>
+promise.then((result) => {
+    console.log(result);
+});
+    </pre>
+
+    <h3>2. catch()</h3>
+
+    <p>
+        Executes when the Promise is rejected.
+    </p>
+
+    <pre>
+promise.catch((error) => {
+    console.log(error);
+});
+    </pre>
+
+    <h3>3. finally()</h3>
+
+    <p>
+        Executes regardless of success or failure.
+    </p>
+
+    <pre>
+promise.finally(() => {
+    console.log("Operation Completed");
+});
+    </pre>
+
+    <h2>Real-Time Example: Food Delivery App</h2>
+
+    <pre>
+Order Placed
+      ↓
+Food Being Prepared
+      ↓
+Food Delivered
+    </pre>
+
+    <p>
+        While the food is being prepared, the Promise remains in the
+        Pending state.
+    </p>
+
+    <p>
+        Once delivered, the Promise is Resolved.
+    </p>
+
+    <p>
+        If the restaurant cancels the order, the Promise is Rejected.
+    </p>
+
+    <h2>Real-Time Example: User Login</h2>
+
+    <pre>
+User Clicks Login
+        ↓
+Server Verification
+        ↓
+Login Successful
+    </pre>
+
+    <p>
+        The application waits for the server response before proceeding.
+        Promises help manage this asynchronous process.
+    </p>
+
+    <h2>Real-Time Example: API Calls</h2>
+
+    <pre>
+Request Sent
+      ↓
+Waiting For Response
+      ↓
+Response Received
+      ↓
+Display Data
+    </pre>
+
+    <p>
+        Modern APIs such as fetch() return Promises.
+    </p>
+
+    <pre>
+fetch("users")
+    .then(response => response.json())
+    .then(data => console.log(data));
+    </pre>
+
+    <h2>Promise Chaining</h2>
+
+    <p>
+        Multiple asynchronous operations can be executed in sequence using
+        Promise chaining.
+    </p>
+
+    <pre>
+placeOrder()
+    .then(() => prepareFood())
+    .then(() => deliverFood())
+    .then(() => {
+        console.log("Order Completed");
+    });
+    </pre>
+
+    <h2>Advantages of Promises</h2>
+
+    <ul>
+        <li>Avoid Callback Hell.</li>
+        <li>Improve code readability.</li>
+        <li>Better error handling.</li>
+        <li>Easier chaining of asynchronous operations.</li>
+        <li>Foundation for Async/Await.</li>
+    </ul>
+
+    <h2>Where Are Promises Used?</h2>
+
+    <ul>
+        <li>API Calls</li>
+        <li>Database Queries</li>
+        <li>Authentication</li>
+        <li>File Uploads</li>
+        <li>Payment Processing</li>
+        <li>React Applications</li>
+        <li>Node.js Applications</li>
+    </ul>
+
+    <h2>Promises and the Event Loop</h2>
+
+    <p>
+        Promise callbacks are placed in the Microtask Queue.
+    </p>
+
+    <p>
+        Microtasks are executed before Macrotasks such as setTimeout.
+    </p>
+
+    <pre>
+Call Stack Empty
+       ↓
+Run All Microtasks
+       ↓
+Run One Macrotask
+       ↓
+Repeat
+    </pre>
+
+    <h2>Interview Definition</h2>
+
+    <p>
+        A Promise is an object that represents the eventual completion or
+        failure of an asynchronous operation and its resulting value.
+    </p>
+
+    <h2>Next Topic</h2>
+
+    <p>
+        Async/Await is built on top of Promises and provides a cleaner,
+        synchronous-looking syntax for handling asynchronous code.
+    </p>
+
+    <script src="./promises.js"></script>
+
+</body>
+</html>

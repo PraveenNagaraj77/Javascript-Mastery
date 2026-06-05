@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Loop</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>JavaScript Event Loop</h1>
+
+    <h2>What is the Event Loop?</h2>
+    <p>
+        The Event Loop is a mechanism that continuously checks whether the
+        Call Stack is empty and moves tasks from the queues to the Call Stack
+        for execution.
+    </p>
+
+    <h2>JavaScript Runtime Components</h2>
+
+    <h3>1. Call Stack</h3>
+    <p>
+        The Call Stack executes JavaScript code one function at a time.
+    </p>
+
+    <h3>2. Web APIs</h3>
+    <p>
+        Browser-provided features such as:
+    </p>
+    <ul>
+        <li>setTimeout()</li>
+        <li>setInterval()</li>
+        <li>Fetch API</li>
+        <li>DOM Events</li>
+    </ul>
+
+    <h3>3. Callback Queue (Macrotask Queue)</h3>
+    <p>
+        Stores callbacks from setTimeout, setInterval, and DOM events
+        waiting to be executed.
+    </p>
+
+    <h3>4. Microtask Queue</h3>
+    <p>
+        Stores high-priority tasks such as:
+    </p>
+    <ul>
+        <li>Promise.then()</li>
+        <li>Promise.catch()</li>
+        <li>queueMicrotask()</li>
+    </ul>
+
+    <h3>5. Event Loop</h3>
+    <p>
+        The Event Loop checks whether the Call Stack is empty. If it is,
+        it executes all Microtasks first and then executes Macrotasks.
+    </p>
+
+    <h2>Execution Order</h2>
+
+    <ol>
+        <li>Run synchronous code.</li>
+        <li>Execute all Microtasks.</li>
+        <li>Execute one Macrotask.</li>
+        <li>Repeat the process.</li>
+    </ol>
+
+    <h2>Important Rule</h2>
+
+    <p>
+        Microtasks always have higher priority than Macrotasks.
+    </p>
+
+    <pre>
+Call Stack Empty
+        ↓
+Run All Microtasks
+        ↓
+Run One Macrotask
+        ↓
+Repeat
+    </pre>
+
+    <script src="eventloop.js"></script>
+</body>
+</html>
