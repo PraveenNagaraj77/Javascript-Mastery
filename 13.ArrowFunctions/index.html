@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>Arrow Functions in JavaScript</h1>
+
+    <h2>What is an Arrow Function?</h2>
+
+    <p>
+        Arrow Functions were introduced in ES6 (ECMAScript 2015) as a shorter
+        and cleaner way to write functions.
+    </p>
+
+    <p>
+        They use the <strong>=></strong> syntax and are widely used in modern
+        JavaScript, React, Node.js, and API handling.
+    </p>
+
+    <h2>Why Were Arrow Functions Introduced?</h2>
+
+    <ul>
+        <li>Reduce boilerplate code.</li>
+        <li>Improve readability.</li>
+        <li>Make callbacks easier to write.</li>
+        <li>Provide lexical <strong>this</strong> binding.</li>
+        <li>Work well with Promises and Array Methods.</li>
+    </ul>
+
+    <h2>Traditional Function vs Arrow Function</h2>
+
+    <h3>Traditional Function</h3>
+
+    <pre>
+function greet(name) {
+    return "Hello " + name;
+}
+    </pre>
+
+    <h3>Arrow Function</h3>
+
+    <pre>
+const greet = (name) => {
+    return "Hello " + name;
+};
+    </pre>
+
+    <h2>Arrow Function Syntax</h2>
+
+    <h3>No Parameters</h3>
+
+    <pre>
+const greet = () => {
+    console.log("Hello");
+};
+    </pre>
+
+    <h3>One Parameter</h3>
+
+    <pre>
+const greet = name => {
+    console.log(name);
+};
+    </pre>
+
+    <h3>Multiple Parameters</h3>
+
+    <pre>
+const add = (a, b) => {
+    return a + b;
+};
+    </pre>
+
+    <h3>Implicit Return</h3>
+
+    <pre>
+const add = (a, b) => a + b;
+    </pre>
+
+    <p>
+        When the function contains only one expression, the return keyword
+        can be omitted.
+    </p>
+
+    <h2>Where Are Arrow Functions Used?</h2>
+
+    <ul>
+        <li>Callbacks</li>
+        <li>Promises</li>
+        <li>Async/Await</li>
+        <li>Array Methods</li>
+        <li>Event Handlers</li>
+        <li>React Components</li>
+        <li>API Calls</li>
+    </ul>
+
+    <h2>Real-Time Example: API Call</h2>
+
+    <pre>
+fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+    </pre>
+
+    <p>
+        Arrow Functions make Promise chains shorter and easier to read.
+    </p>
+
+    <h2>Real-Time Example: Array Methods</h2>
+
+    <pre>
+const prices = [100, 200, 300];
+
+const discountedPrices =
+    prices.map(price => price - 10);
+    </pre>
+
+    <p>
+        Arrow Functions are commonly used with map(), filter(), reduce(),
+        find(), and forEach().
+    </p>
+
+    <h2>Real-Time Example: Event Handling</h2>
+
+    <pre>
+button.addEventListener("click", () => {
+    console.log("Button Clicked");
+});
+    </pre>
+
+    <h2>The Most Important Interview Topic: this Keyword</h2>
+
+    <p>
+        Arrow Functions do not have their own this.
+    </p>
+
+    <p>
+        They inherit this from the surrounding scope (lexical scope).
+    </p>
+
+    <h3>Traditional Function</h3>
+
+    <pre>
+const person = {
+
+    name: "Praveen",
+
+    greet: function() {
+        console.log(this.name);
+    }
+
+};
+
+person.greet();
+    </pre>
+
+    <p>Output:</p>
+
+    <pre>
+Praveen
+    </pre>
+
+    <h3>Arrow Function</h3>
+
+    <pre>
+const person = {
+
+    name: "Praveen",
+
+    greet: () => {
+        console.log(this.name);
+    }
+
+};
+
+person.greet();
+    </pre>
+
+    <p>Output:</p>
+
+    <pre>
+undefined
+    </pre>
+
+    <p>
+        Because Arrow Functions do not create their own this context.
+    </p>
+
+    <h2>Lexical this</h2>
+
+    <p>
+        Lexical this means the Arrow Function uses the this value from
+        the outer scope where it was created.
+    </p>
+
+    <h3>Real-Time Example</h3>
+
+    <pre>
+function Counter() {
+
+    this.count = 0;
+
+    setTimeout(() => {
+        console.log(this.count);
+    }, 1000);
+
+}
+
+new Counter();
+    </pre>
+
+    <p>
+        Arrow Functions solve many this-related issues inside callbacks.
+    </p>
+
+    <h2>Can Arrow Functions Be Constructors?</h2>
+
+    <p>No.</p>
+
+    <pre>
+const Person = (name) => {
+    this.name = name;
+};
+
+new Person("Praveen");
+    </pre>
+
+    <p>
+        This throws an error because Arrow Functions cannot be used with new.
+    </p>
+
+    <h2>Advantages of Arrow Functions</h2>
+
+    <ul>
+        <li>Shorter syntax.</li>
+        <li>Cleaner code.</li>
+        <li>Lexical this binding.</li>
+        <li>Excellent for callbacks.</li>
+        <li>Widely used in React and modern JavaScript.</li>
+    </ul>
+
+    <h2>Disadvantages of Arrow Functions</h2>
+
+    <ul>
+        <li>No own this.</li>
+        <li>Cannot be used as constructors.</li>
+        <li>Not suitable for object methods that rely on this.</li>
+    </ul>
+
+    <h2>When Should You Use Arrow Functions?</h2>
+
+    <ul>
+        <li>Callbacks</li>
+        <li>Promise Handling</li>
+        <li>Async/Await Functions</li>
+        <li>Array Methods</li>
+        <li>Event Listeners</li>
+    </ul>
+
+    <h2>When Should You Avoid Arrow Functions?</h2>
+
+    <ul>
+        <li>Object Methods using this.</li>
+        <li>Constructor Functions.</li>
+        <li>Prototype Methods.</li>
+    </ul>
+
+    <h2>Frequently Asked Interview Questions</h2>
+
+    <h3>1. What is an Arrow Function?</h3>
+
+    <p>
+        A shorter syntax for writing functions introduced in ES6.
+    </p>
+
+    <h3>2. What is the main difference between a normal function and an Arrow Function?</h3>
+
+    <p>
+        Arrow Functions do not have their own this.
+    </p>
+
+    <h3>3. Can Arrow Functions be used as constructors?</h3>
+
+    <p>
+        No.
+    </p>
+
+    <h3>4. Why are Arrow Functions widely used in React?</h3>
+
+    <p>
+        They provide cleaner syntax and avoid many this-binding issues.
+    </p>
+
+    <h3>5. What is Lexical this?</h3>
+
+    <p>
+        It means the Arrow Function inherits this from its surrounding scope.
+    </p>
+
+    <h2>Interview Definition</h2>
+
+    <p>
+        Arrow Functions are a concise way of writing functions introduced in ES6.
+        They provide shorter syntax and lexical this binding, making them ideal
+        for callbacks, promises, array methods, and modern JavaScript development.
+    </p>
+
+    <h2>Next Topic</h2>
+
+    <pre>
+Arrow Functions
+        ↓
+Execution Context
+        ↓
+Hoisting
+        ↓
+this Keyword
+        ↓
+Call, Apply, Bind
+    </pre>
+
+    <script src="./arrowfunctions.js"></script>
+
+</body>
+</html>

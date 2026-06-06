@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+    <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+    <h1>Async / Await in JavaScript</h1>
+
+    <h2>What is Async/Await?</h2>
+
+    <p>
+        Async/Await is a modern way of handling asynchronous operations in
+        JavaScript. It is built on top of Promises and provides a cleaner,
+        more readable syntax for working with asynchronous code.
+    </p>
+
+    <h2>Why Was Async/Await Introduced?</h2>
+
+    <p>
+        Before Async/Await, asynchronous operations were handled using
+        Callbacks and Promises.
+    </p>
+
+    <p>
+        While Promises solved Callback Hell, long Promise chains can still
+        become difficult to read and maintain.
+    </p>
+
+    <pre>
+Callbacks
+     ↓
+Promises
+     ↓
+Async / Await
+    </pre>
+
+    <h2>What is async?</h2>
+
+    <p>
+        The <strong>async</strong> keyword is used before a function to make
+        it return a Promise automatically.
+    </p>
+
+    <pre>
+async function greet() {
+    return "Hello";
+}
+    </pre>
+
+    <p>
+        Even though a string is returned, JavaScript wraps it inside a Promise.
+    </p>
+
+    <pre>
+Promise { "Hello" }
+    </pre>
+
+    <h2>What is await?</h2>
+
+    <p>
+        The <strong>await</strong> keyword pauses the execution of an async
+        function until the Promise is resolved or rejected.
+    </p>
+
+    <pre>
+const data = await fetchData();
+    </pre>
+
+    <p>
+        JavaScript waits for the Promise to complete and then stores the
+        resolved value inside the variable.
+    </p>
+
+    <h2>Important Rule</h2>
+
+    <pre>
+async → Makes a function return a Promise
+
+await → Waits for a Promise to resolve
+    </pre>
+
+    <p>
+        The await keyword can only be used inside an async function.
+    </p>
+
+    <h2>Execution Flow</h2>
+
+    <pre>
+Call Async Function
+        ↓
+Promise Created
+        ↓
+Await Encountered
+        ↓
+Wait For Promise Result
+        ↓
+Promise Resolved
+        ↓
+Continue Execution
+    </pre>
+
+    <h2>Promise vs Async/Await</h2>
+
+    <h3>Using Promises</h3>
+
+    <pre>
+fetchUser()
+    .then(user => {
+        console.log(user);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+    </pre>
+
+    <h3>Using Async/Await</h3>
+
+    <pre>
+try {
+    const user = await fetchUser();
+    console.log(user);
+}
+catch(error) {
+    console.log(error);
+}
+    </pre>
+
+    <p>
+        Async/Await is easier to read because it looks like synchronous code.
+    </p>
+
+    <h2>Real-Time Example: User Login</h2>
+
+    <pre>
+User Clicks Login
+        ↓
+Server Verification
+        ↓
+Login Successful
+        ↓
+Dashboard Opens
+    </pre>
+
+    <p>
+        The application waits for the server response before proceeding.
+    </p>
+
+    <h2>Real-Time Example: Food Delivery</h2>
+
+    <pre>
+Place Order
+      ↓
+Prepare Food
+      ↓
+Deliver Food
+      ↓
+Order Completed
+    </pre>
+
+    <p>
+        Each step waits for the previous step to complete.
+    </p>
+
+    <h2>Real-Time Example: API Call</h2>
+
+    <pre>
+Send Request
+      ↓
+Server Processing
+      ↓
+Response Received
+      ↓
+Display Data
+    </pre>
+
+    <p>
+        Most modern API calls in React and Node.js applications use
+        Async/Await.
+    </p>
+
+    <h2>Error Handling</h2>
+
+    <p>
+        Async/Await uses try/catch blocks to handle errors.
+    </p>
+
+    <pre>
+try {
+
+    const data = await fetchData();
+
+    console.log(data);
+
+}
+catch(error) {
+
+    console.log(error);
+
+}
+    </pre>
+
+    <h2>Advantages of Async/Await</h2>
+
+    <ul>
+        <li>Cleaner syntax.</li>
+        <li>Easy to read and maintain.</li>
+        <li>Avoids long Promise chains.</li>
+        <li>Better error handling with try/catch.</li>
+        <li>Makes asynchronous code look synchronous.</li>
+    </ul>
+
+    <h2>Disadvantages of Async/Await</h2>
+
+    <ul>
+        <li>Can make independent operations run sequentially if used incorrectly.</li>
+        <li>Requires understanding of Promises.</li>
+    </ul>
+
+    <h2>Where is Async/Await Used?</h2>
+
+    <ul>
+        <li>API Calls (fetch, axios)</li>
+        <li>Database Queries</li>
+        <li>Authentication & Authorization</li>
+        <li>File Uploads</li>
+        <li>Payment Processing</li>
+        <li>React Applications</li>
+        <li>Node.js Applications</li>
+        <li>Cloud Services</li>
+    </ul>
+
+    <h2>Async/Await and Event Loop</h2>
+
+    <p>
+        Async/Await is built on top of Promises.
+    </p>
+
+    <p>
+        Promise resolutions are placed in the Microtask Queue and are
+        processed by the Event Loop before Macrotasks such as setTimeout.
+    </p>
+
+    <pre>
+Call Stack Empty
+       ↓
+Microtask Queue
+       ↓
+Macrotask Queue
+    </pre>
+
+    <h2>Frequently Asked Interview Questions</h2>
+
+    <h3>1. Can await be used without async?</h3>
+
+    <p>
+        No. Await can only be used inside an async function
+        (except top-level await in ES modules).
+    </p>
+
+    <h3>2. Does async make code synchronous?</h3>
+
+    <p>
+        No. It only makes asynchronous code look synchronous.
+    </p>
+
+    <h3>3. What does an async function return?</h3>
+
+    <p>
+        An async function always returns a Promise.
+    </p>
+
+    <h3>4. Is Async/Await better than Promises?</h3>
+
+    <p>
+        Async/Await is built on Promises and provides a cleaner syntax.
+        Internally, Promises are still being used.
+    </p>
+
+    <h2>Interview Definition</h2>
+
+    <p>
+        Async/Await is a Promise-based feature in JavaScript that allows
+        asynchronous code to be written in a synchronous-looking manner,
+        improving readability, maintainability, and error handling.
+    </p>
+
+    <h2>Next Topic</h2>
+
+    <pre>
+Execution Context
+        ↓
+this Keyword
+        ↓
+Call, Apply, Bind
+    </pre>
+
+    <script src="./asyncawait.js"></script>
+
+</body>
+</html>
