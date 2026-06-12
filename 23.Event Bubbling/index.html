@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div id="parent" style="background-color: red; padding: 4px">
+      <button id="child">CLICK ME</button>
+    </div>
+
+    <!-- Event Capturing -->
+
+    <div id="parent1" style="background-color: green; padding: 4px">
+      <button id="child1">CLICK ME</button>
+    </div>
+    <!-- Event Propagation Stops -->
+
+    <div id="parent2" style="background-color: yellow; padding: 4px">
+      <button id="child2">CLICK ME</button>
+    </div>
+
+    <!-- Event Delegation -->
+
+    <ul id="fruits">
+      <li>APPLE</li>
+      <li>Mango</li>
+      <li>Orange</li>
+    </ul>
+
+    <!-- Example E-COMMERCE -->
+
+    <script src="./index.js"></script>
+  </body>
+</html>

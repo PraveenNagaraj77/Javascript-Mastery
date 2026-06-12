@@ -22,3 +22,13 @@ p {
     margin-bottom: 10px;
     line-height: 1.6;
 }
+
+
+.active{
+    color: #007acc;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
